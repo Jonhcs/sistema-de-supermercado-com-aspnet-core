@@ -1,0 +1,22 @@
+@model Sistema_de_supermercado_com_aspnet_core.Models.Estoque;
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<h2>Editar Produto</h2>
+<hr/>
+
+<form method="POST" asp-action="Atualizar" asp-controller="Estoque" >
+    <input type="hidden" asp-for="Id">
+
+    <label asp-for="ProdutoId">Produto: </label>
+    <select class="form-control" asp-for="ProdutoId" asp-items='@(new SelectList(@ViewBag.Produtos,"Id","Nome"))' ></select>
+    <span asp-validation-for="ProdutoId"></span><br>
+
+    <label asp-for="Quantidade">Quantidade: </label>
+    <input type="number" step="any" class="form-control" asp-for="Quantidade" placeholder="Preço de Custo">
+    <span asp-validation-for="Quantidade"></span><br>
+    <br>
+    <button class="btn btn-success">Atualizar</button>
+</form>

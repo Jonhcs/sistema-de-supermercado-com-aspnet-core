@@ -1,0 +1,20 @@
+@model Sistema_de_supermercado_com_aspnet_core.DTO.FornecedorDTO
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<h2>Editar Fornecedor</h2>
+<hr/>
+<form class="form-horizontal" asp-action="Atualizar" asp-controller="Fornecedor" method="POST">
+    <input type="hidden" asp-for="Id">
+    <label for="Nome">Nome:</label>
+    <input class="form-control" asp-for="Nome" type="text" placeholder="Nome">
+    <span asp-validation-for="Nome"></span>
+    <label for="Email">Email:</label>
+    <input class="form-control" asp-for="Email" type="email" placeholder="Email">
+    <span asp-validation-for="Email"></span>
+    <label for="Telefone">Telefone:</label>
+    <input class="form-control" asp-for="Telefone" placeholder="99 99999-9999">
+    <span asp-validation-for="Telefone"></span>
+    <button class="btn btn-success">Atualizar</button>
+</form>

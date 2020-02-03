@@ -1,0 +1,42 @@
+@model Sistema_de_supermercado_com_aspnet_core.DTO.ProdutoDTO;
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<h2>Novo Produto</h2>
+<hr/>
+
+<form method="POST" asp-controller="Produtos" asp-action="Salvar">
+    <input type="hidden" asp-for="Id" value="0">
+    
+    <label for="Nome">Nome:</label>
+    <input class="form-control" asp-for="Nome" type="text" placeholder="Nome do produto">
+    <span asp-validation-for="Nome"></span><br>
+    
+    <label asp-for="CategoriaID">Categoria: </label>
+    <select class="form-control" asp-for="CategoriaID" asp-items='@(new SelectList(@ViewBag.Categorias,"Id","Nome"))' ></select>
+    <span asp-validation-for="CategoriaID"></span><br>
+
+    <label asp-for="FornecedorID">Categoria: </label>
+    <select class="form-control" asp-for="FornecedorID" asp-items='@(new SelectList(@ViewBag.Fornecedores,"Id","Nome"))' ></select>
+    <span asp-validation-for="FornecedorID"></span><br>
+    
+    <label asp-for="PrecoDeVendaString">Preço De Venda: </label>
+    <input type="text" step="any" class="form-control" asp-for="PrecoDeVendaString" placeholder="Preço de Venda">
+    <span asp-validation-for="PrecoDeVendaString"></span><br>
+
+    <label asp-for="PrecoDeCustoString">Preço De Custo: </label>
+    <input type="text" step="any" class="form-control" asp-for="PrecoDeCustoString" placeholder="Preço de Custo">
+    <span asp-validation-for="PrecoDeCustoString"></span><br>
+
+    <label asp-for="Medicao">Medicao: </label>
+    <select class="form-control" asp-for="Medicao">
+        <option value="0">Litro</option>
+        <option value="1">Quilo</option>
+        <option value="2">Unidade</option>
+    </select>
+
+    <br>
+    <button class="btn btn-success">Cadastrar</button>
+</form>

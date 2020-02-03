@@ -1,0 +1,14 @@
+@model Sistema_de_supermercado_com_aspnet_core.DTO.CategoriaDTO
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<h2>Editar Categoria</h2>
+<hr/>
+<form class="form-horizontal" asp-action="Atualizar" asp-controller="Categorias" method="POST">
+    <input type="hidden" asp-for="Id">
+    <label for="Nome">Nome:</label>
+    <input class="form-control" asp-for="Nome" type="text" placeholder="Nome da Categoria"><br>
+    <span asp-validation-for="Nome"></span>
+    <button class="btn btn-success">Atualizar</button>
+</form>
